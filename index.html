@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Brian's Awesome Website</title>
+        <style>
+            body {
+                background: rgb(42, 95, 58);
+                color: rgb(45, 45, 45);
+                padding: 10px;
+                font-family: arial;
+            }
+    
+            #all-contents {
+                max-width: 800px;
+                margin: auto;
+            }
+    
+            /* navigation menu */
+            nav {
+                background: rgb(86, 179, 123);
+                margin: 0 auto;
+                margin-bottom: 20px;
+                display: flex;
+                padding: 10px;
+                border-radius: 30px;
+            }
+    
+            nav h1 {
+                display: flex;
+                align-items: center;
+                color: white;
+                flex: 1;
+                margin: 0;
+            }
+    
+            nav ul {
+                list-style-image: none;
+            }
+    
+            nav li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+    
+            nav a {
+                text-decoration: none;
+                color: #fff;
+            }
+    
+            /* main container area beneath menu */
+            main {
+                background: rgb(235, 226, 200);
+                display: flex;
+            }
+    
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+    
+            .sidebar img {
+                width: 200px;
+                border: solid 5px;
+                border-color: rgb(50, 37, 37);
+            }
+    
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+    
+            h2,
+            h3 {
+                margin: 0px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="all-contents">
+            <nav>
+                <h1>Brian's Awesome Website</h1>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="portfolio.html">Portfolio</a>
+                    </li>
+                </ul>
+            </nav>
+            <main>
+                <div class="sidebar">
+                    <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/272902631_479401630568109_1821741487373111542_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=PVS4nX_LLcMAX84aaT5&_nc_oc=AQn4SnYIZCgM5ghqX7qZGsfbrffa7a6emo90D1U6Bb6GJO0cs40OztA28NGfPyTV8WzVDAt4iwf213Q8BmnnIWTe&_nc_ht=scontent-hou1-1.xx&oh=00_AT8RsYv8PFqdiv-_wFrGdyZk-16fe-B_7LdAt3HKGPampw&oe=62009E2B"
+                        alt="">
+                </div>
+                <div class="content">
+                    <h2>Brian Chau</h2>
+                    <p>Student at Operation Spark.</p>
+                    <div id="interests">
+                        <h3>Interests</h3>
+                        <ul>
+                            <li>Coding</li>
+                            <li>Learning new things</li>
+                            <li>Listening to music</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
