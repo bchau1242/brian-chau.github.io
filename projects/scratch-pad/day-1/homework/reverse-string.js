@@ -34,8 +34,13 @@ function reverseString(input) {
     // YOUR CODE GOES ABOVE HERE //
 }
 
-
-
+/*function reverseString(string) {
+  var reversed = '';
+  for (var i = string.length - 1; i >= 0; i--) {
+    reversed += string[i]; 
+  }
+}
+*/
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
