@@ -86,7 +86,29 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    return typeof value;
+    if (typeof value !== 'object'){
+      // return typeof value
+      return typeof value;
+      }
+      // determine if value is an array 
+      else if (Array.isArray(value) === true){
+        // return 'array'
+        return 'array';
+      }
+    // determine if value is null
+      else if (value === null) {
+      // return 'null'
+        return 'null';
+      }
+    // determine if value is instanceof Date
+      else if (value instanceof Date === true) {
+      // return 'date'
+      return 'date';
+      } 
+    // else it must be an object 
+      else {
+        return 'object';
+      }
     
     
     
