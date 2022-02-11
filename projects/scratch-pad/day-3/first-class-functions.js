@@ -96,11 +96,7 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    for (let i = 0; i < strings.length; i++) {
-      return function(char) {
-        return strings[i][0] === char;
-      }
-    }
+   
     
     
     
