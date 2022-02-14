@@ -73,14 +73,13 @@ function makeContactList() {
             }
           },
         printAllContactNames: function() {
-            var allNames = [];
-            for (let i = 0; i < contacts.length; i++) {
-              allNames.push(contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast']);
+          var fullName = '';
+          for (let i = 0; i < contacts.length; i++) { 
+              fullName += contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'] + '\n';
             }
-            for (let i = 0; i < allNames.length; i++) {
-              console.log(allNames[i]);
+          return fullName;
             }
-        }
+      
     }
 }
 
