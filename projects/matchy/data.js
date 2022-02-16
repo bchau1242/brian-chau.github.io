@@ -98,8 +98,14 @@ animals.push(pig);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var friends = []; 
+// We chose array to collect data and make a list of friends.
+ function getRandom(animals) {
+   return Math.floor(Math.random() * animals.length);
+ }
 
-
+var addFriend = friends.push(animals[getRandom(animals)].name);
+animals[1]['friends'] = friends;
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
