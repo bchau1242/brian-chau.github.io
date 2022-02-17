@@ -61,12 +61,9 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    var capFirst = [];
     string = string.split(' ');
-    for (var i = 0; i < string.length; i++) {
-	    capFirst.push(string[i][0].toUpperCase() + string[i].slice(1));
-        }
-    return capFirst.join(' ');
+    string = string.map(word => word[0].toUpperCase() + word.substr(1));
+    return string.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -74,7 +71,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    return `Welcome ${object['name']}!`;
+    object.name = object.name[0].toUpperCase() + object.name.slice(1);
+    return `Welcome ${object.name}!`;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -82,7 +80,9 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    object.name = object.name[0].toUpperCase() + object.name.slice(1);
+    object.species = object.species[0].toUpperCase() + object.species.slice(1);
+    return `${object.name} is a ${object.species}`;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -90,7 +90,11 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    if (object.noises && object.noises.length > 0) {
+        return object.noises.join(' ');
+      } else {
+        return 'there are no noises';
+      }
 }
 
 //////////////////////////////////////////////////////////////////////
