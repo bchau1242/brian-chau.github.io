@@ -96,7 +96,7 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-   
+   return strings.every(test);
     
     
     
