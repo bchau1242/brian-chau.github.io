@@ -39,23 +39,22 @@ function replace(animals, name, replacement) {
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function remove(animals, name) {
-    for (var i = 0; animals.length; i++) {
-        if (name === animals[i].name) {
-            return animals.splice(i, 1);
+    for(var i = 0; i < animals.length; i++) {
+        if(animals[i].name === name) {
+          animals.splice(i, 1);
+          return animals;
         }
-    }
-}
+      }
+} 
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function add(animals, animal) {
-    for (var i = 0; i < animals.length; i++) {
-        if (animal.name.length > 0 && animal.species.length > 0
-            && animal.name !== animals[i].name) {
-                animals.push(animal);
-            }
+    const animalExists = animals.find((a) => a.name === animal.name);
+    if ((!animalExists) && (animal.name.length > 0) && (animal.species.length > 0)) {
+        animals.push(animal);
     }
 }
 
