@@ -73,11 +73,11 @@ function makeContactList() {
             }
           },
         printAllContactNames: function() {
-          var fullName = '';
+          var fullName = [];
           for (let i = 0; i < contacts.length; i++) { 
-              fullName += contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast'] + '\n';
+              fullName.push(contacts[i]['nameFirst'] + ' ' + contacts[i]['nameLast']);
             }
-          return fullName;
+          return fullName.join('\n');
             }
       
     }

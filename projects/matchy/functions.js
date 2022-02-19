@@ -40,7 +40,7 @@ function replace(animals, name, replacement) {
 //////////////////////////////////////////////////////////////////////
 function remove(animals, name) {
     for (var i = 0; animals.length; i++) {
-        if (animals[i].name === name) {
+        if (name === animals[i].name) {
             return animals.splice(i, 1);
         }
     }
@@ -51,7 +51,12 @@ function remove(animals, name) {
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function add(animals, animal) {
-
+    for (var i = 0; i < animals.length; i++) {
+        if (animal.name.length > 0 && animal.species.length > 0
+            && animal.name !== animals[i].name) {
+                animals.push(animal);
+            }
+    }
 }
 
 
