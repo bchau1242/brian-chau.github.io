@@ -83,9 +83,13 @@ _.first = function (array, number) {
         return [];
     } else if (typeof number !== 'number') {
         return array[0];
+    } else if(number > array.length) {
+        return array;
+    } else if (number < 0) {
+        return [];
     } else {
         for(var i = 0; i < number; i++) {
-            first.push(array[i]);
+            first.push(array[i])
         }
     }
     return first;
@@ -110,8 +114,22 @@ _.first = function (array, number) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
-_.last = function() {
-
+_.last = function(array, number) {
+    var last = [];
+    if(Array.isArray(array) !== true) {
+        return [];
+    } else if (typeof number !== 'number') {
+        return array[array.length - 1];
+    } else if (number < 0) {
+        return [];
+    } else if(number > array.length) {
+        return array;
+    } else {
+        for(var i = number - 1; i < array.length; i++) {
+            last.push(array[i])
+        }
+    }
+    return last;
 }
 
 /** _.indexOf
@@ -130,8 +148,13 @@ _.last = function() {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
-_.indexOf = function() {
-
+_.indexOf = function(array, value) {
+    for(var i = 0; i < array.length; i++) {
+        if(array[i] === value) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 /** _.contains
@@ -149,8 +172,10 @@ _.indexOf = function() {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
-_.contains = function() {
-
+_.contains = function(array, value) {
+    for(var i = 0; i < array.length; i++) {
+        return (array.includes(value) ? true : false);
+    }
 }
 
 /** _.each
@@ -169,8 +194,16 @@ _.contains = function() {
 *      -> should log "a" "b" "c" to the console
 */
 
-_.each = function() {
-
+_.each = function(collection, func) {
+    if (Array.isArray(collection) === true) {
+        for(var i = 0; i < collection.length; i++) {
+            func(collection[i], i, collection);
+        }
+    } else if (typeof collection === 'object') {
+        for(var key in collection) {
+            func(collection[key], key, collection);
+        }
+    } 
 }
 
 /** _.unique
@@ -183,8 +216,11 @@ _.each = function() {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
-_.unique = function() {
-
+_.unique = function(array) {
+    var newArray = [];
+    for(var i = 0; i < array.length; i++) {
+        if()
+    }
 }
 
 /** _.filter
@@ -203,8 +239,14 @@ _.unique = function() {
 *   use _.each in your implementation
 */
 
-_.filter = function() {
-
+_.filter = function(array, func) {
+    var newArray = [];
+    for(var i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) === true) {
+          newArray.push(array[i]);
+        }
+    }
+    return newArray;
 }
 
 /** _.reject
@@ -220,8 +262,13 @@ _.filter = function() {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
-_.reject = function() {
-
+_.reject = function(array, func) {
+    for(var i = 0; i < array.length; i++) {
+        if (func(array[i], i, array) !== true) {
+            return array;
+        };
+    }
+    return array;
 }
 
 /** _.partition
@@ -243,8 +290,12 @@ _.reject = function() {
 }
 */
 
-_.partition = function(){
-
+_.partition = function(array, func) {
+    for (var i = 0; i < array.length; i++) {
+        if (func(element, key, array) === true) {
+            return 
+        }
+    }
 }
 
 /** _.map
@@ -351,8 +402,11 @@ _.some = function() {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-_.reduce = function() {
-
+_.reduce = function(array, func, seed) {
+    for(var i = 0; i < array.length; i++) {
+        func(result, element, index);
+        
+    }
 }
 
 /** _.extend
