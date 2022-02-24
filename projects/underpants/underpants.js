@@ -219,7 +219,7 @@ _.each = function(collection, func) {
 _.unique = function(array) {
     var newArray = [];
     for(var i = 0; i < array.length; i++) {
-        if()
+        
     }
 }
 
@@ -263,12 +263,13 @@ _.filter = function(array, func) {
 */
 
 _.reject = function(array, func) {
+    let newArr = [];
     for(var i = 0; i < array.length; i++) {
         if (func(array[i], i, array) !== true) {
-            return array;
+            newArr.push(array[i]);
         };
     }
-    return array;
+    return newArr;
 }
 
 /** _.partition
@@ -291,11 +292,15 @@ _.reject = function(array, func) {
 */
 
 _.partition = function(array, func) {
+    let newArr = [[], []];
     for (var i = 0; i < array.length; i++) {
-        if (func(element, key, array) === true) {
-            return 
+        if (func(array[i], i, array)) {
+           newArr[0].push(array[i]);  
+        } else {
+            newArr[1].push(array[i]);
         }
     }
+    return newArr;
 }
 
 /** _.map
@@ -314,8 +319,18 @@ _.partition = function(array, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-_.map = function() {
-
+_.map = function(collection, func) {
+    let newArr = [];
+    if(Array.isArray(collection)) {
+        for(let i = 0; i < collection.length; i++) {
+            newArr.push(func(collection[i], i, collection));
+        }
+    } else {
+        for(let key in collection) {
+            newArr.push(func(collection[key], key, collection));
+        }     
+    }
+    return newArr;
 }
 
 /** _.pluck
@@ -329,7 +344,7 @@ _.map = function() {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-_.pluck = function() {
+_.pluck = function(array, key) {
 
 }
 
@@ -354,8 +369,36 @@ _.pluck = function() {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-_.every = function() {
-
+_.every = function(collection, func) {
+    if(func === undefined) {
+        if (Array.isArray(collection)) {
+            for(let i = 0; i < collection.length; i++) {
+                if(!func(collection[i], i, collection)) {
+                    return false;
+                }
+            }
+        } else {
+            for(let key in collection) {
+                if(!func(collection[key], key, collection)) {
+                    return false;
+                }
+            }
+        }
+    }
+    if (Array.isArray(collection)) {
+        for(let i = 0; i < collection.length; i++) {
+            if(!func(collection[i], i, collection)) {
+                return false;
+            }
+        }
+    } else {
+        for(let key in collection) {
+            if(!func(collection[key], key, collection)) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 /** _.some
@@ -379,8 +422,36 @@ _.every = function() {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-_.some = function() {
-
+_.some = function(collection, func) {
+    if(func === undefined) {
+        if (Array.isArray(collection)) {
+            for(let i = 0; i < collection.length; i++) {
+                if(func(collection[i], i, collection)) {
+                    return true;
+                }
+            }
+        } else {
+            for(let key in collection) {
+                if(func(collection[key], key, collection)) {
+                    return true;
+                }
+            }
+        }
+    }
+    if (Array.isArray(collection)) {
+        for(let i = 0; i < collection.length; i++) {
+            if(func(collection[i], i, collection)) {
+                return true;
+            }
+        }
+    } else {
+        for(let key in collection) {
+            if(func(collection[key], key, collection)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 /** _.reduce
@@ -424,7 +495,7 @@ _.reduce = function(array, func, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function() {
+_.extend = function(...inputs) {
 
 }
 
