@@ -217,10 +217,11 @@ _.each = function(collection, func) {
 */
 
 _.unique = function(array) {
-    var newArray = [];
-    for(var i = 0; i < array.length; i++) {
-        
+    let result = [];
+    for(let i = 0; i < array.length; i++) {
+        result.push(_.indexOf(array, array[i]));
     }
+    return result;
 }
 
 /** _.filter
@@ -344,8 +345,15 @@ _.map = function(collection, func) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-_.pluck = function(array, key) {
-
+_.pluck = function(array, property) {
+    let result = _.map(array, function(element, index, array) {
+        for(let key in element) {
+          if (key === property) {
+            return element[key];
+          }
+        }
+    });
+    return result;
 }
 
 /** _.every
@@ -373,19 +381,18 @@ _.every = function(collection, func) {
     if(func === undefined) {
         if (Array.isArray(collection)) {
             for(let i = 0; i < collection.length; i++) {
-                if(!func(collection[i], i, collection)) {
+                if(!collection[i]) {
                     return false;
                 }
             }
         } else {
             for(let key in collection) {
-                if(!func(collection[key], key, collection)) {
+                if(!collection[key]) {
                     return false;
                 }
             }
         }
-    }
-    if (Array.isArray(collection)) {
+    } else if (Array.isArray(collection)) {
         for(let i = 0; i < collection.length; i++) {
             if(!func(collection[i], i, collection)) {
                 return false;
@@ -426,19 +433,18 @@ _.some = function(collection, func) {
     if(func === undefined) {
         if (Array.isArray(collection)) {
             for(let i = 0; i < collection.length; i++) {
-                if(func(collection[i], i, collection)) {
+                if(collection[i]) {
                     return true;
                 }
             }
         } else {
             for(let key in collection) {
-                if(func(collection[key], key, collection)) {
+                if(collection[i]) {
                     return true;
                 }
             }
         }
-    }
-    if (Array.isArray(collection)) {
+    } else if (Array.isArray(collection)) {
         for(let i = 0; i < collection.length; i++) {
             if(func(collection[i], i, collection)) {
                 return true;
@@ -474,10 +480,19 @@ _.some = function(collection, func) {
 */
 
 _.reduce = function(array, func, seed) {
-    for(var i = 0; i < array.length; i++) {
-        func(result, element, index);
-        
-    }
+    let accumulator;
+    if(seed !== undefined) {
+      accumulator = seed;
+      for(var i = 0; i < array.length; i++) {
+          accumulator = func(accumulator, array[i], i, array);
+        }
+    } else {
+      accumulator = array[0];
+      for(let i = 1; i < array.length; i++) {
+          accumulator = func(accumulator, array[i], i);
+        }  
+    } 
+  return accumulator;
 }
 
 /** _.extend
@@ -495,8 +510,8 @@ _.reduce = function(array, func, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(...inputs) {
-
+_.extend = function(...input) {
+    
 }
 
 //////////////////////////////////////////////////////////////////////

@@ -26,3 +26,7 @@
 **How to Push Lodown Changes**
 1) In terminal type => cd .. (terminal should read /workspace)
 2) In terminal type => cd lodown (terminal should read /workspace/loodwn)
+
+**How to Test Let's Get Functional** 
+1) Make sure line 6 reads => var _ require('underbar);
+2) Replace <YOUR GITHUB FOLDER on line 19 with the name of your gihub folder as it appears in the top left >
