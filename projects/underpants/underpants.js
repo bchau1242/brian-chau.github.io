@@ -510,8 +510,8 @@ _.reduce = function(array, func, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(...input) {
-    
+_.extend = function(...inputs) {
+    return [...inputs];
 }
 
 //////////////////////////////////////////////////////////////////////
