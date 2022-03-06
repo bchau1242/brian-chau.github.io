@@ -217,11 +217,10 @@ _.each = function(collection, func) {
 */
 
 _.unique = function(array) {
-    let result = [];
-    for(let i = 0; i < array.length; i++) {
-        result.push(_.indexOf(array, array[i]));
-    }
-    return result;
+    let uniqueChars = array.filter((c, index) => {
+        return _.indexOf(array, c) === index;
+    });
+    return uniqueChars;
 }
 
 /** _.filter
