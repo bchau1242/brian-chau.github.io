@@ -510,7 +510,13 @@ _.reduce = function(array, func, seed) {
 */
 
 _.extend = function(...inputs) {
-    return [...inputs];
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[0] = {
+      ...inputs[0],
+      ...inputs[i + 1]
+    }
+    return inputs[0];
+  }
 }
 
 //////////////////////////////////////////////////////////////////////
