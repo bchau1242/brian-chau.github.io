@@ -59,7 +59,7 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
+var range = function(x, y, output=[]) {
   
 };
 
@@ -105,7 +105,7 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-  return palindrome()
+  
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -155,11 +155,21 @@ var compareStr = function(str1, str2) {
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, output=[]){
+  if(str.length === 0) {
+    return output;
+  }
+  output.push(str[0]);
+  return createArray(str.slice(1), output);
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, reverse=[]) {
+  if(array.length === 0) {
+    return reverse;
+  }
+  reverse.push(array[array.length - 1]);
+  return reverseArr(array.splice(array.length - 1, 1), reverse);
 };
 
 // 18. Create a new array with a given value and length.
