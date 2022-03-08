@@ -84,7 +84,15 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-
+  if(n === 1) {
+    return true;
+  } else if(n === 0) {
+    return false;
+  }
+  if(n % 2 !== 0) {
+    return false; 
+  } 
+  return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -97,6 +105,7 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  return palindrome()
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -111,6 +120,16 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if(y === 1){
+    return x;
+  } else if(y === 0 || x === 0) {
+    return 0;
+  }
+  if(y > 0) {
+    return x + multiply(x, y - 1);
+  } else {
+    return x + multiply(x, y + 1);
+  }
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
