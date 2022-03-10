@@ -95,21 +95,26 @@ function nth(list, index) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual(a, b) {
-  if(a === b) {
-    return true;
-  } 
-  if (a === null || typeof a !== "object" ||
-      b === null || typeof b !== "object") return false;
-
-  let keysA = Object.keys(a), keysB = Object.keys(b);
-
-  if (keysA.length != keysB.length) return false;
-
-  for (let key of keysA) {
-    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+function deepEqual(x, y) {
+ if(typeof x !== 'object' && typeof y !== 'object') {
+    return x === y;
+  }
+  if(typeof x !== 'object' || typeof y !== 'object') {
+    return false;
   }
 
+  let xKeys = Object.keys(x);
+  let yKeys = Object.keys(y);
+
+  if(xKeys.length !== yKeys.length) {
+    return false;
+  }
+
+  for(let i = 0; i < xKeys.length; i++) {
+    if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])) {
+      return false;
+    }
+  }
   return true;
 }
 
