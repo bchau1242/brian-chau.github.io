@@ -59,24 +59,20 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y) {
-  if (x === y) {
-    return [];
-  } else if(y - x === 1) {
-    return [];
-  } else if (y - x === 2) {
-    return [x + 1];
+var range = function(x, y, output=[]) {
+  if (x === y - 1 || x === y + 1) {
+    return output;
+  } else if (x === y) {
+    return output;
   }
   if(x < y) {
-    var array = range(x, y - 1);
-    array.push(y - 1);
-    return array;
-  } else {
-    var array = range(x - 1, y);
-    array.push(x - 1);
-    return array;
+    output.push(x + 1);
+    return range(x + 1, y, output);
+  } else if (x > y) {
+    output.push(x - 1);
+    return range(x - 1, y, output);
   }
-};
+}
 
 // var range = function(x, y, output=[]) {
 //   if (x === y - 1 || x === y + 1) {
@@ -105,7 +101,7 @@ var exponent = function(base, exp) {
   if (exp > 0) {
     return base * exponent(base, exp - 1);
   } else {
-    return base / exponent(base, exp + 1);
+    return 1 / exponent(base, -exp);
   }
 };
 
@@ -135,7 +131,9 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-  if (string.length === 0) {
+  var re = /[^A-Za-z0-9]/g;
+  string = string.toLowerCase().replace(re, '');
+  if (string.length === 1) {
     return true;
   }
   if (string[0] === string[string.length - 1]) {
@@ -156,16 +154,13 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
-  if(y === 1){
-    return x;
-  } else if(y === 0 || x === 0) {
+  if (x === 0 || y === 0) {
     return 0;
-  }
-  if(y > 0) {
+} else if (y < 0) {
+    return - x + multiply(x, y + 1);
+} else {
     return x + multiply(x, y - 1);
-  } else {
-    return x + multiply(x, y + 1);
-  }
+}
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
