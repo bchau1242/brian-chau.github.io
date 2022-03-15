@@ -510,13 +510,11 @@ _.reduce = function(array, func, seed) {
 */
 
 _.extend = function(...inputs) {
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[0] = {
-      ...inputs[0],
-      ...inputs[i + 1]
-    }
-    return inputs[0];
-  }
+  let obj1 = inputs[0];
+  let obj2 = inputs[1];
+  let obj3 = inputs[2];
+  let result = Object.assign(obj1, obj2, obj3);
+  return result;
 }
 
 //////////////////////////////////////////////////////////////////////
