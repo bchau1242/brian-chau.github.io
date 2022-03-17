@@ -16,7 +16,7 @@ var _ = require('underbar');
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./<brian-chau.github.io/projects/let-s-get-functional
+ *    npm start --prefix ./brian-chau.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
@@ -28,13 +28,31 @@ var maleCount = function(array) {
     return males.length;
 };
 
-var femaleCount;
+var femaleCount = function(array) {
+    let females = _.reduce(array, function(accumulator, customer) {
+		if(customer.gender === 'female') {
+			accumulator += 1;
+		}
+		return accumulator;
+	}, 0)
+    return females;
+}
 
-var oldestCustomer;
+var oldestCustomer = function(array) {
+    let old = _.reduce(array, function(older, customer) {
+        if(customer.age > older) {
+            
+        }
+        return customer.name;
+    }, '')
+    return old;
+};
 
 var youngestCustomer;
 
-var averageBalance;
+var averageBalance = function(array) {
+    
+};
 
 var firstLetterCount;
 

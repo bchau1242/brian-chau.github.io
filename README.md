@@ -28,5 +28,9 @@
 2) In terminal type => cd lodown (terminal should read /workspace/loodwn)
 
 **How to Test Let's Get Functional** 
+In terminal => cd projects/let-s-get-functional
+In terminal => npm install underbar
 1) Make sure line 6 reads => var _ require('underbar);
-2) Replace <YOUR GITHUB FOLDER on line 19 with the name of your gihub folder as it appears in the top left >
+2) Replace <YOUR GITHUB FOLDER on line 19 with the name of your gihub folder as it appears in the top left of your gitpod space.>
+3) cd into your workspace (cd .. in terminal until only /workspace appears)
+4) copy code from line 19 into terminal to test. 
