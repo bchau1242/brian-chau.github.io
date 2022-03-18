@@ -71,18 +71,52 @@ var youngestCustomer = function(array) {
 };
 
 var averageBalance = function(array) {
-    
+	let balances = _.map(array, function(customer) {
+		return Number(customer.balance.replace(/\$|,/g, ''));
+	});
+	let sum = _.reduce(balances, function(total, balance) {
+		return total += balance;
+	}, 0)
+	return sum / balances.length;
 };
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter) {
+	let count = _.filter(array, function(customer) {
+		if(customer.name[0].toUpperCase() === letter.toUpperCase()) {
+			return true;
+		}
+	})
+	return count.length;
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter) {
+	for(let i = 0; i < array.length; i++) {
+		if(array[i].name === customer) {
+			let count = _.reduce(array[i].friends, function(total, friend) {
+				if(friend.name[0] === letter) {
+					total += 1;
+				}
+				return total;
+			}, 0)
+			return count;
+		}
+	}
+};
 
 var friendsCount;
 
 var topThreeTags;
 
-var genderCount;
+var genderCount = function(array) {
+	let count = _.reduce(array, function(obj, customer) {
+		if(obj[customer.gender]) {
+			obj[customer.gender] += 1;
+		} else {
+			obj[customer.gender] = 1;
+		}
+	}, {})
+	return count;
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
