@@ -93,7 +93,7 @@ var friendFirstLetterCount = function(array, customer, letter) {
 	for(let i = 0; i < array.length; i++) {
 		if(array[i].name === customer) {
 			let count = _.reduce(array[i].friends, function(total, friend) {
-				if(friend.name[0] === letter) {
+				if(friend.name[0].toUpperCase() === letter.toUpperCase()) {
 					total += 1;
 				}
 				return total;
@@ -114,6 +114,7 @@ var genderCount = function(array) {
 		} else {
 			obj[customer.gender] = 1;
 		}
+		return obj;
 	}, {})
 	return count;
 };
