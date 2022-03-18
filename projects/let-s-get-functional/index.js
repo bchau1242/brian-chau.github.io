@@ -103,7 +103,22 @@ var friendFirstLetterCount = function(array, customer, letter) {
 	}
 };
 
-var friendsCount;
+var friendsCount = function(array, name) {
+	let mapped = _.map(array, function(customer) {
+		let friend = customer.friends;
+		for(let i = 0; i < friend.length; i++) {
+			if(friend[i].name === name) {
+				return customer.name;
+			} 
+		}
+	})
+	let filter = _.filter(mapped, function(person) {
+		if (person !== undefined) {
+			return true;
+		}
+	})
+	return filter;
+};
 
 var topThreeTags;
 
