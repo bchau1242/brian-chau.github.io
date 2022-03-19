@@ -120,7 +120,27 @@ var friendsCount = function(array, name) {
 	return filter;
 };
 
-var topThreeTags;
+var topThreeTags = function(array) {
+	let mapped = _.map(array, function(customer) {
+		return customer.tags;
+	})
+	let combine = [];
+	for(let i = 0; i < mapped.length; i++) {
+		combine = [
+			...combine,
+			...mapped[i]
+		];
+	}
+	let result = _.reduce(combine, function(tagObj, tag) {
+		if(tagObj[tag]) {
+			tagObj[tag] += 1;
+		} else {
+			tagObj[tag] = 1;
+		}
+		return tagObj;
+	}, {})
+	return result;
+};
 
 var genderCount = function(array) {
 	let count = _.reduce(array, function(obj, customer) {
