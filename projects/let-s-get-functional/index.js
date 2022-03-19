@@ -124,6 +124,7 @@ var topThreeTags = function(array) {
 	let mapped = _.map(array, function(customer) {
 		return customer.tags;
 	})
+	
 	let combine = [];
 	for(let i = 0; i < mapped.length; i++) {
 		combine = [
@@ -131,6 +132,7 @@ var topThreeTags = function(array) {
 			...mapped[i]
 		];
 	}
+	
 	let result = _.reduce(combine, function(tagObj, tag) {
 		if(tagObj[tag]) {
 			tagObj[tag] += 1;
@@ -139,7 +141,20 @@ var topThreeTags = function(array) {
 		}
 		return tagObj;
 	}, {})
-	return result;
+	
+	let order = [];
+	for(let key in result) {
+		order.push([key, result[key]]);
+	}
+	let sorted = order.sort(function(a, b) {
+		return a[1] - b[1];
+	});
+
+	let top = [...sorted[sorted.length - 3], ...sorted[sorted.length - 2], ...sorted[sorted.length - 1]];
+	let topThree = _.filter(top, function(tag) {
+		return typeof tag === 'string';
+	})
+	return topThree;
 };
 
 var genderCount = function(array) {
