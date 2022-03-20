@@ -6,6 +6,17 @@
  * 1. There are two phases when using variables: declaration and initialization.
  * 2. To create a variable, we start off by declaring the keyword "var" followed by giving the vairable a name. We can then initialize 
  or assign the variable a value. 
+ * 3. Name your variables usign camelCase.
+ * 4. Are globally scoped, therefore are hoisted to the top 
+ * 
+ * Let:
+ * 0. Like variables, they are containers that hold values. 
+ * 1. Often used wihin a local scope, which  
+ * 
+ * Constant: 
+ * 
+ * 
+ * 
 */
 
 // 1. Declaration // 
