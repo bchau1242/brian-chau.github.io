@@ -6,8 +6,8 @@
 3) Close .bashrc
 4) Close terminal 
 5) Reopen terminal 
-6) In your terminal enter => sudo apt-get install subversion 
-7) In your terminal enter => npm install -g opspark
+6) In your terminal enter => 
+7) In your terminal enter => npm install -g osudo apt-get install subversion pspark
 8) In your terminal enter => os install 
 
 **Github commands**
