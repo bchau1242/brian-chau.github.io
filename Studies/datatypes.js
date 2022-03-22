@@ -1,5 +1,5 @@
 ; /**
- * Data Types
+ * DATA TYPES:
  * 0. Data types are the types of value. In javascript language, types are divided into 2 sets of types; primitive/simple and Complex.
  * 1. Primitive/Simple data types consists of Number, String, Boolean, NaN, undefined, and null. They are defined as immutable, meaning they cannot be changed.
  * Operations done on simple values will return new simple values, but will not affect or change the original value. When you pass a value, every time you assign a value to a variable, 

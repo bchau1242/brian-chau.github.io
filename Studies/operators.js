@@ -1,5 +1,5 @@
 /**
- * Operators 
+ * OPERATORS: 
  * 0. Operators are categorized depending on what they do. The different types of operators include assignment, arithmetic, comparison, logical, unary and ternary operators.
  * 1. Used to execute mathematical computations on operands that can be of any type. 
  */
