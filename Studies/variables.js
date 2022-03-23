@@ -40,6 +40,16 @@ console.log(myDog); // prints => Beau
 myDog = 'Bumi';
 console.log(myDog); // prints => Bumi 
 
+// 4. Hoisting 
+// When declaring a variable with the var keyword, that variable declaration is hoisted to the top of their scope. //
+// 
+console.log(petName); // prints => undefined // only the declaration is hoisted to the top of the scope not its value.  
+                                             // Assignment comes after logging petName to console. 
+petName = 'Bumi'; 
+
+console.log(petName); // prints => Bumi because declaration gets hoisted to top before assignment and console.log();
+var petName; 
+
 // Let // 
 
 // 1. Declaration // 
@@ -52,7 +62,7 @@ console.log(myDog); // prints => undefined
 myDog = 'Beau';
 console.log(myDog); // prints => Beau
 
-// 3. Redclaration //
+// 3. Redeclaration //
 // Redeclaring a let variable will log to the console an error. //
 let myDog = 'Beau';
 console.log(myDog); // prints => SyntaxError: Identidier 'myDog' has already been declared
@@ -66,14 +76,6 @@ if(myDog === 'Lucky') {
     console.log(myDog); // prints => Mia
 }
 console.log(myDog); // prints => Mia
-
-// 5. Hoisting 
-// The let variable is inside the { } brackets and can only be accessed within that block. //
-if(myDog === 'Beau') {
-    let dog2 = 'Bumi';
-    console.log(dog2); // prints => Bumi
-} 
-console.log(dog2); // prints => ReferenceError: dog2 is not defined. 
 
 // Constants // 
 
