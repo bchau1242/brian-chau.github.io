@@ -217,8 +217,8 @@ _.each = function(collection, func) {
 */
 
 _.unique = function(array) {
-    let uniqueChars = array.filter((c, index) => {
-        return _.indexOf(array, c) === index;
+    let uniqueChars = _.filter(array, function(char, index) {
+        return _.indexOf(array, char) === index;
     });
     return uniqueChars;
 }

@@ -4,7 +4,7 @@
  String, Boolean, Array, Object or Functions. Variables are called so because unlike "constants"(another identifier), variables 
  can be re-assigned to a different value.
  * 1. There are two phases when using variables: declaration and initialization.
- * 2. To create a variable, we start off by declaring the keyword "var" followed by giving the vairable a name. We can then initialize 
+ * 2. To create a variable, we start off by declaring the keyword "var", "let", or "const" followed by giving the vairable a name. We can then initialize 
  or assign the variable a value. 
  * 3. Name your variables usign camelCase.
  * 4. Are globally scoped; therefore are hoisted to the top. You can use the variable before it is declared. 
