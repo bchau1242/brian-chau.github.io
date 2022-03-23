@@ -2,6 +2,13 @@
  * OPERATORS: 
  * 0. Operators are categorized depending on what they do. The different types of operators include assignment, arithmetic, comparison, logical, unary and ternary operators.
  * 1. Used to execute mathematical computations on operands that can be of any type. 
+ * 2. Arithmetic operators are basic operators used in Javascript to compute operands. They include addition(+), subtraction(-), multiplication(*), division(/), remainder(%), exponent(**),
+ *  increment(++), and decrement(--).
+ * 3. Assignment operators are used to assign a value to a variable. They include assignment(=), addition(+=), subraction(-=), multiplication(*=), division(/=), remainder(%=),
+ * and exponent(**=). 
+ * 4. Comparison operators are used to run true or false tests on operands. They include strict equal(===), strict not equal(!==), less than(<), greater than(>), less than or equal to(<=)
+ * and greater than or equal to(>=).
+ * Logical operators are used to determine the logic between variables and values. They include and(&&), or(||), and not(!).
  */
 
 // 1. Arithmetic Operator //

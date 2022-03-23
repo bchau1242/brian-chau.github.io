@@ -25,6 +25,8 @@ console.log(typeof str); // => string
 // Booleans are comparative data types that result to either two values: true or false. //
 let bool = true === false; 
 console.log(typeof bool); // => boolean
+let isGreater = 52 > 16;
+console.log(isGreater); // prints => true 
 
 // 1d. NaN // 
 // NaN is a value representing Not-A-Number // 

@@ -40,6 +40,7 @@ console.log(fullName('Brian', 'Chau')); // prints => Brian Chau
 
 // 4. Anonymous Function // 
 // In the first example, we declare a variable named anon and assign it a value of an anonymous function. It is anonymous because it is not named. 
+// When we assign a function definition to a variable, it becomes a function expression. 
 // In the second example, we call a named function and pass an anonymous function as its second argument.  
 const anon = function() {
     return 'This is an anonymous function';
